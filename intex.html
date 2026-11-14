@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VAAZHVI | Live Healthy. Live Better.</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'DM Sans', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f8faf6;
+    color: #183b30;
+}
+
+:root {
+    --green: #164735;
+    --dark: #0b2d22;
+    --gold: #c9a66b;
+    --light: #edf4ec;
+    --white: #ffffff;
+    --text: #52645a;
+}
+
+header {
+    background: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 3px 20px #183b3010;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    width: 43px;
+    height: 43px;
+    background: var(--green);
+    color: var(--gold);
+    display: grid;
+    place-items: center;
+    border-radius: 14px;
+    font-size: 24px;
+}
+
+.logo h2 {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 2px;
+    color: var(--green);
+}
+
+.logo small {
+    color: var(--gold);
+    letter-spacing: 1px;
+    font-size: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--green);
+    margin-left: 25px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn {
+    background: var(--green);
+    color: white;
+    padding: 13px 25px;
+    border-radius: 7px;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background: var(--dark);
+}
+
+section {
+    padding: 80px 8%;
+}
+
+.hero {
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    background:
+    linear-gradient(90deg, #0b2d22 0%, #0b2d22dd 45%, #0b2d2240 100%),
+    url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1600&q=85');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.tag {
+    color: var(--gold);
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(40px, 6vw, 68px);
+    line-height: 1.15;
+    margin: 20px 0;
+}
+
+.hero p {
+    color: #e1e9e3;
+    line-height: 1.9;
+    margin-bottom: 28px;
+}
+
+h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    color: var(--green);
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    color: var(--text);
+    line-height: 1.8;
+    max-width: 700px;
+    margin-bottom: 35px;
+}
+
+.about {
+    text-align: center;
+}
+
+.about .subtitle {
+    margin: auto;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.feature {
+    background: white;
+    padding: 27px;
+    border-radius: 13px;
+    border: 1px solid #e4ebe3;
+    transition: .3s;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px #16473512;
+}
+
+.feature span {
+    font-size: 29px;
+}
+
+.feature h3 {
+    margin: 15px 0 9px;
+    color: var(--green);
+}
+
+.feature p {
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.team {
+    background: #edf4ec;
+    text-align: center;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 35px;
+}
+
+.member {
+    background: white;
+    padding: 28px 15px;
+    border-radius: 13px;
+}
+
+.member-icon {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: var(--green);
+    color: var(--gold);
+    margin: auto auto 15px;
+    font-size: 25px;
+}
+
+.member h3 {
+    margin-bottom: 7px;
+}
+
+.member p {
+    font-size: 13px;
+    color: var(--text);
+    line-height: 1.8;
+}
+
+.login-area {
+    background: #f8faf6;
+}
+
+.form-container {
+    max-width: 850px;
+    margin: auto;
+    background: white;
+    padding: 38px;
+    border-radius: 18px;
+    box-shadow: 0 10px 40px #183b3010;
+}
+
+.form-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    color: var(--green);
+}
+
+.form-heading p {
+    color: var(--text);
+    margin-top: 10px;
+    line-height: 1.7;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #dce5dc;
+    border-radius: 7px;
+    outline: none;
+    margin-top: 8px;
+    background: #fcfdfb;
+    color: var(--green);
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--green);
+}
+
+.field {
+    margin-bottom: 19px;
+}
+
+.field label, .group-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--green);
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.form-section {
+    display: none;
+}
+
+.form-section:target {
+    display: block;
+}
+
+.form-section:first-of-type {
+    display: block;
+}
+
+.form-section:target ~ .form-section {
+    display: none;
+}
+
+.progress {
+    height: 7px;
+    background: #e8eee7;
+    border-radius: 20px;
+    margin: 20px 0 30px;
+    overflow: hidden;
+}
+
+.progress div {
+    height: 100%;
+    background: var(--green);
+    width: 12.5%;
+}
+
+.section-number {
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.form-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    margin-bottom: 8px;
+    color: var(--green);
+}
+
+.section-desc {
+    color: var(--text);
+    font-size: 14px;
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.options label {
+    background: #f1f6ef;
+    padding: 11px 14px;
+    border-radius: 7px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.options input {
+    width: auto;
+    margin-right: 5px;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    gap: 12px;
+}
+
+.previous {
+    background: #eaf0e9;
+    color: var(--green);
+}
+
+footer {
+    background: var(--dark);
+    color: white;
+    padding: 45px 8%;
+    text-align: center;
+}
+
+footer p {
+    color: #c8d6cb;
+    font-size: 13px;
+    line-height: 1.8;
+    margin-top: 12px;
+}
+
+.disclaimer {
+    background: #fff8e9;
+    border-left: 4px solid var(--gold);
+    padding: 15px;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 20px 0;
+}
+
+@media(max-width:700px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    nav a {
+        margin: 0 7px;
+        font-size: 12px;
+    }
+    section {
+        padding: 55px 6%;
+    }
+    .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    .form-container {
+        padding: 23px;
+    }
+    .hero {
+        min-height: 480px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <div class="logo-icon">❧</div>
+        <div>
+            <h2>VAAZHVI</h2>
+            <small>LIVE HEALTHY. LIVE BETTER.</small>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#team">Our Team</a>
+        <a href="#login">Login</a>
+    </nav>
+</header>
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="tag">YOUR PERSONAL HEALTH COMPANION</div>
+        <h1>A Healthier Way<br>to Live.</h1>
+        <p>
+            Discover a smarter approach to everyday wellness.
+            VAAZHVI brings personal health information, lifestyle
+            awareness and AI-based general guidance together
+            in one place.
+        </p>
+        <a href="#about" class="btn">Explore VAAZHVI</a>
+        <a href="#login" class="btn" style="background:#c9a66b;color:#173b2d;margin-left:10px;">Get Started</a>
+    </div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+    <div class="tag">ABOUT OUR PROJECT</div>
+    <h2 class="section-title">Introducing VAAZHVI</h2>
+    <p class="subtitle">
+        VAAZHVI is an AI-Based Personal Health Guidance Assistant
+        designed to help individuals understand their health-related
+        information and build better everyday wellness habits.
+        It brings personal profiles, health history, reminders
+        and lifestyle information into a single platform.
+    </p>
+</section>
+
+<!-- FEATURES -->
+
+<section id="features">
+    <div class="tag">WHAT WE OFFER</div>
+    <h2 class="section-title">Our Features</h2>
+    <p class="subtitle">A collection of tools designed to support everyday wellness.</p>
+
+    <div class="feature-grid">
+        <div class="feature"><span>👤</span><h3>Personal Health Profile</h3><p>Organise personal and health-related information in one place.</p></div>
+        <div class="feature"><span>📋</span><h3>Health History</h3><p>Maintain a record of health conditions and medical history.</p></div>
+        <div class="feature"><span>🤖</span><h3>AI Health Guidance</h3><p>Receive general wellness information and supportive guidance.</p></div>
+        <div class="feature"><span>💊</span><h3>Medicine Reminders</h3><p>Keep track of prescribed medicine schedules.</p></div>
+        <div class="feature"><span>🔔</span><h3>Health Reminders</h3><p>Plan everyday wellness routines and reminders.</p></div>
+        <div class="feature"><span>🥗</span><h3>Meal & Nutrition</h3><p>Record meal timings and food preferences.</p></div>
+        <div class="feature"><span>🌙</span><h3>Sleep Monitoring</h3><p>Maintain awareness of sleep routines.</p></div>
+        <div class="feature"><span>🏃</span><h3>Activity Tracking</h3><p>Keep track of everyday physical activities.</p></div>
+        <div class="feature"><span>📊</span><h3>Health Reports</h3><p>View summaries of recorded wellness information.</p></div>
+        <div class="feature"><span>🆘</span><h3>Emergency Support</h3><p>Keep emergency contact information accessible.</p></div>
+        <div class="feature"><span>🎙️</span><h3>Voice Assistance</h3><p>Support convenient voice-based interaction.</p></div>
+        <div class="feature"><span>🌐</span><h3>Multilingual Support</h3><p>Make health information easier to understand in different languages.</p></div>
+    </div>
+</section>
+
+<!-- TEAM -->
+
+<section class="team" id="team">
+    <div class="tag">MEET THE TEAM</div>
+    <h2 class="section-title">The People Behind VAAZHVI</h2>
+    <p class="subtitle" style="margin:auto;">A team working together to build a smarter health guidance platform.</p>
+
+    <div class="team-grid">
+        <div class="member">
+            <div class="member-icon">S</div>
+            <h3>Suwetha S</h3>
+            <p>26CS840</p>
+            <p>Team Leader / Product Owner</p>
+        </div>
+        <div class="member">
+            <div class="member-icon">S</div>
+            <h3>Sushmitha G</h3>
+            <p>26CS839</p>
+            <p>Scrum Master</p>
+        </div>
+        <div class="member">
+            <div class="member-icon">S</div>
+            <h3>Sujay VR</h3>
+            <p>26CS824</p>
+            <p>Developer / Tester</p>
+        </div>
+        <div class="member">
+            <div class="member-icon">S</div>
+            <h3>Suriya B</h3>
+            <p>26CS832</p>
+            <p>Developer / Documentation</p>
+        </div>
+    </div>
+</section>
+
+<!-- LOGIN -->
+
+<section class="login-area" id="login">
+<div class="form-container">
+    <div class="form-heading">
+        <div class="tag">WELCOME TO VAAZHVI</div>
+        <h2>Member Login</h2>
+        <p>Sign in to continue to your personal health profile.</p>
+    </div>
+
+    <form action="#profile">
+        <div class="field">
+            <label>Email Address</label>
+            <input type="email" placeholder="Enter your email" required>
+        </div>
+        <div class="field">
+            <label>Password</label>
+            <input type="password" placeholder="Enter your password" required>
+        </div>
+        <button class="btn" type="submit" style="width:100%;">Login & Continue</button>
+    </form>
+    <p style="text-align:center;color:#758579;font-size:12px;margin-top:15px;">
+        Frontend demonstration only. Do not enter real passwords.
+    </p>
+</div>
+</section>
+
+<!-- PERSONAL HEALTH PROFILE -->
+
+<section class="login-area" id="profile">
+<div class="form-container">
+
+<div class="form-heading">
+    <div class="tag">YOUR WELLNESS JOURNEY STARTS HERE</div>
+    <h2>Personal Health Profile</h2>
+    <p>Help us understand your health background by completing these sections.</p>
+</div>
+
+<div class="disclaimer">
+    <b>Privacy & Safety:</b> This is a frontend project demonstration.
+    Use sample information only. VAAZHVI does not diagnose conditions
+    or replace professional medical advice.
+</div>
+
+<div class="progress"><div></div></div>
+
+<form>
+
+<!-- SECTION 1 -->
+
+<div class="form-section" id="personal">
+<div class="section-number">SECTION 01 / 08</div>
+<h3>Personal Information</h3>
+<p class="section-desc">Let's start with some basic information about you.</p>
+
+<div class="field"><label>Full Name</label><input type="text" placeholder="Enter your full name" required></div>
+
+<div class="grid-2">
+<div class="field"><label>Date of Birth</label><input type="date"></div>
+<div class="field"><label>Age</label><input type="number" min="0" max="120" placeholder="Enter age"></div>
+</div>
+
+<div class="field"><label>Gender</label>
+<select><option value="">Select gender</option><option>Female</option><option>Male</option><option>Other</option><option>Prefer not to say</option></select></div>
+
+<div class="field"><label>Blood Group</label>
+<select><option value="">Select blood group</option><option>A+</option><option>A-</option><option>B+</option><option>B-</option><option>O+</option><option>O-</option><option>AB+</option><option>AB-</option><option>Don't know</option></select></div>
+
+<div class="grid-2">
+<div class="field"><label>Phone Number</label><input type="tel" placeholder="Phone number"></div>
+<div class="field"><label>Email Address</label><input type="email" placeholder="Email address"></div>
+</div>
+
+<div class="grid-2">
+<div class="field"><label>Country</label><input type="text" placeholder="Country"></div>
+<div class="field"><label>State</label><input type="text" placeholder="State"></div>
+</div>
+
+<div class="field"><label>City</label><input type="text" placeholder="City"></div>
+<div class="field"><label>Address</label><textarea rows="3" placeholder="Enter your address"></textarea></div>
+
+<h3>Emergency Contact</h3>
+<div class="field"><label>Contact Person Name</label><input type="text" placeholder="Emergency contact name"></div>
+<div class="grid-2">
+<div class="field"><label>Contact Number</label><input type="tel" placeholder="Emergency phone number"></div>
+<div class="field"><label>Relationship</label><input type="text" placeholder="Relationship"></div>
+</div>
+
+<div class="form-buttons">
+<a href="#login" class="btn previous">Back</a>
+<a href="#physical" class="btn">Next →</a>
+</div>
+</div>
+
+<!-- SECTION 2 -->
+
+<div class="form-section" id="physical">
+<div class="section-number">SECTION 02 / 08</div>
+<h3>Physical Information</h3>
+<p class="section-desc">Basic physical information for your wellness profile.</p>
+
+<div class="grid-2">
+<div class="field"><label>Height (cm)</label><input type="number" placeholder="Enter height"></div>
+<div class="field"><label>Weight (kg)</label><input type="number" placeholder="Enter weight"></div>
+</div>
+
+<div class="field"><label>Preferred Language</label>
+<select><option>Select language</option><option>English</option><option>Tamil</option><option>Hindi</option><option>Telugu</option><option>Malayalam</option><option>Other</option></select></div>
+
+<div class="field"><label>Daily Activity Level</label>
+<select><option>Select activity level</option><option>Mostly sitting</option><option>Light activity</option><option>Moderately active</option><option>Very active</option></select></div>
+
+<div class="field"><label>Any additional physical information?</label><textarea rows="3" placeholder="Optional details"></textarea></div>
+
+<div class="form-buttons">
+<a href="#personal" class="btn previous">← Previous</a>
+<a href="#medical" class="btn">Next →</a>
+</div>
+</div>
+
+<!-- SECTION 3 -->
+
+<div class="form-section" id="medical">
+<div class="section-number">SECTION 03 / 08</div>
+<h3>Medical History</h3>
+<p class="section-desc">Share any relevant medical history. You may skip questions you do not wish to answer.</p>
+
+<div class="field"><label>Do you have any existing health conditions?</label>
+<div class="options">
+<label><input type="radio" name="condition" value="yes"> Yes</label>
+<label><input type="radio" name="condition" value="no"> No</label>
+<label><input type="radio" name="condition" value="unsure"> Not sure</label>
+</div></div>
+
+<div class="field"><label>Select applicable conditions</label>
+<div class="options">
+<label><input type="checkbox"> Diabetes</label>
+<label><input type="checkbox"> Blood Pressure</label>
+<label><input type="checkbox"> Asthma</label>
+<label><input type="checkbox"> Thyroid</label>
+<label><input type="checkbox"> Heart-related condition</label>
+<label><input type="checkbox"> Other</label>
+</div></div>
+
+<div class="field"><label>Other condition details</label><textarea rows="3" placeholder="Optional details"></textarea></div>
+<div class="field"><label>Previous surgeries</label><textarea rows="3" placeholder="Mention details if applicable"></textarea></div>
+<div class="field"><label>Previous hospitalisation details</label><textarea rows="3" placeholder="Optional details"></textarea></div>
+<div class="field"><label>Family medical history</label><textarea rows="3" placeholder="Optional family health history"></textarea></div>
+
+<div class="form-buttons">
+<a href="#physical" class="btn previous">← Previous</a>
+<a href="#allergies" class="btn">Next →</a>
+</div>
+</div>
+
+<!-- SECTION 4 -->
+
+<div class="form-section" id="allergies">
+<div class="section-number">SECTION 04 / 08</div>
+<h3>Allergies</h3>
+<p class="section-desc">Information about known allergies can help maintain a useful health record.</p>
+
+<div class="field"><label>Do you have any known allergies?</label>
+<div class="options">
+<label><input type="radio" name="allergy" value="yes"> Yes</label>
+<label><input type="radio" name="allergy" value="no"> No</label>
+<label><input type="radio" name="allergy" value="unknown"> Not sure</label>
+</div></div>
+
+<div class="field"><label>Food Allergies</label><textarea rows="2" placeholder="Enter food allergies"></textarea></div>
+<div class="field"><label>Medicine Allergies</label><textarea rows="2" placeholder="Enter medicine allergies"></textarea></div>
+<div class="field"><label>Skin Allergies</label><textarea rows="2" placeholder="Enter skin allergies"></textarea></div>
+<div class="field"><label>Environmental Allergies</label><textarea rows="2" placeholder="Dust, pollen, etc."></textarea></div>
+<div class="field"><label>Other allergy information</label><textarea rows="3" placeholder="Additional details"></textarea></div>
+
+<div class="form-buttons">
+<a href="#medical" class="btn previous">← Previous</a>
+<a href="#medicine" class="btn">Next →</a>
+</div>
+</div>
+
+<!-- SECTION 5 -->
+
+<div class="form-section" id="medicine">
+<div class="section-number">SECTION 05 / 08</div>
+<h3>Medicine Information</h3>
+<p class="section-desc">Record information about medicines prescribed by your healthcare professional.</p>
+
+<div class="field"><label>Are you currently taking any prescribed medicines?</label>
+<div class="options">
+<label><input type="radio" name="medicines" value="yes"> Yes</label>
+<label><input type="radio" name="medicines" value="no"> No</label>
+</div></div>
+
+<div class="field"><label>Medicine Name</label><input type="text" placeholder="Enter medicine name"></div>
+<div class="field"><label>Prescribed by</label><input type="text" placeholder="Doctor / Healthcare professional"></div>
+
+<div class="grid-2">
+<div class="field"><label>Schedule</label>
+<select><option>Select schedule</option><option>Morning</option><option>Afternoon</option><option>Evening</option><option>Night</option><option>As prescribed</option></select></div>
+<div class="field"><label>Duration</label><input type="text" placeholder="As prescribed"></div>
+</div>
+
+<div class="field"><label>Additional medicine notes</label><textarea rows="3" placeholder="Optional notes"></textarea></div>
+
+<div class="form-buttons">
+<a href="#allergies" class="btn previous">← Previous</a>
+<a href="#lifestyle" class="btn">Next →</a>
+</div>
+</div>
+
+<!-- SECTION 6 -->
+
+<div class="form-section" id="lifestyle">
+<div class="section-number">SECTION 06 / 08</div>
+<h3>Lifestyle Information</h3>
+<p class="section-desc">Tell us about your everyday lifestyle and routines.</p>
+
+<div class="field"><label>Food Preference</label>
+<select><option>Select preference</option><option>Vegetarian</option><option>Non-Vegetarian</option><option>Vegan</option><option>Other</option></select></div>
+
+<div class="field"><label>Dietary Restrictions</label><textarea rows="2" placeholder="Any dietary restrictions?"></textarea></div>
+
+<div class="grid-2">
+<div class="field"><label>Usual Sleep Time</label><input type="time"></div>
+<div class="field"><label>Usual Wake-up Time</label><input type="time"></div>
+</div>
+
+<div class="field"><label>Average Sleep Duration</label>
+<select><option>Select duration</option><option>Less than 5 hours</option><option>5–6 hours</option><option>6–8 hours</option><option>More than 8 hours</option></select></div>
+
+<div class="field"><label>Exercise Habits</label>
+<select><option>Select option</option><option>Never or rarely</option><option>Sometimes</option><option>Regularly</option></select></div>
+
+<div class="field"><label>Daily Water Intake Habits</label>
+<select><option>Select option</option><option>Less than usual</option><option>Moderate</option><option>Regularly throughout the day</option><option>Not sure</option></select></div>
+
+<div class="field"><label>Other lifestyle details</label><textarea rows="3" placeholder="Optional information"></textarea></div>
+
+<div class="form-buttons">
+<a href="#medicine" class="btn previous">← Previous</a>
+<a href="#goals" class="btn">Next →</a>
+</div>
+</div>
+
+<!-- SECTION 7 -->
+
+<div class="form-section" id="goals">
+<div class="section-number">SECTION 07 / 08</div>
+<h3>Health Goals</h3>
+<p class="section-desc">Choose the areas of wellness you would like to focus on.</p>
+
+<div class="field"><label>Select your goals</label>
+<div class="options">
+<label><input type="checkbox"> Improve general wellness</label>
+<label><input type="checkbox"> Maintain healthy routines</label>
+<label><input type="checkbox"> Improve sleep habits</label>
+<label><input type="checkbox"> Improve nutrition habits</label>
+<label><input type="checkbox"> Increase physical activity</label>
+<label><input type="checkbox"> Follow prescribed care routines</label>
+<label><input type="checkbox"> Other</label>
+</div></div>
+
+<div class="field"><label>Describe your wellness goals</label><textarea rows="4" placeholder="Tell us about your goals"></textarea></div>
+
+<div class="form-buttons">
+<a href="#lifestyle" class="btn previous">← Previous</a>
+<a href="#additional" class="btn">Next →</a>
+</div>
+</div>
+
+<!-- SECTION 8 -->
+
+<div class="form-section" id="additional">
+<div class="section-number">SECTION 08 / 08</div>
+<h3>Additional Information</h3>
+<p class="section-desc">Anything else you would like to include in your profile?</p>
+
+<div class="field"><label>Current Health Concerns</label><textarea rows="4" placeholder="Describe any concerns you want to record"></textarea></div>
+<div class="field"><label>Additional Notes</label><textarea rows="4" placeholder="Enter additional information"></textarea></div>
+
+<div class="disclaimer">
+Your information should be handled privately and securely.
+This HTML demonstration does not transmit or securely store health data.
+</div>
+
+<div class="form-buttons">
+<a href="#goals" class="btn previous">← Previous</a>
+<a href="#dashboard" class="btn">Complete Profile →</a>
+</div>
+</div>
+
+</form>
+</div>
+</section>
+
+<!-- DASHBOARD PLACEHOLDER -->
+
+<section id="dashboard">
+<div class="form-container" style="text-align:center;">
+    <div class="tag">VAAZHVI WELLNESS</div>
+    <h2 class="section-title">Welcome to Your Dashboard</h2>
+    <p class="subtitle" style="margin:15px auto;">
+        Your personal health profile sections are ready for the next stage of development.
+    </p>
+    <div class="feature-grid">
+        <div class="feature"><span>👤</span><h3>My Profile</h3><p>Personal information</p></div>
+        <div class="feature"><span>📋</span><h3>Health History</h3><p>Health background</p></div>
+        <div class="feature"><span>🔔</span><h3>Reminders</h3><p>Wellness routines</p></div>
+    </div>
+    <a href="#home" class="btn" style="margin-top:25px;">Back to Home</a>
+</div>
+</section>
+
+<footer>
+    <h2 style="font-family:'Playfair Display',serif;letter-spacing:3px;">VAAZHVI</h2>
+    <p>Live Healthy. Live Better.</p>
+    <p>AI-Based Personal Health Guidance Assistant</p>
+    <p>Developed by Team VAAZHVI | SKCET</p>
+    <p style="margin-top:20px;">© 2026 VAAZHVI. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
